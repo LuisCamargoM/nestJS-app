@@ -24,10 +24,21 @@ export class TodoEntity {
   @CreateDateColumn({ name: 'created_At' })
   @ApiProperty()
   createdAt: string;
+
   @CreateDateColumn({ name: 'updated_At' })
   @ApiProperty()
   updatedAt: string;
+
   @DeleteDateColumn({ name: 'deleted_At' })
   @ApiProperty()
   deleteddAt: string;
+
+  constructor(todo?: Partial<TodoEntity>) {
+    this.id = todo.id;
+    this.isDone = todo.isDone;
+    this.task = todo.task;
+    this.createdAt = todo.createdAt;
+    this.updatedAt = todo.updatedAt;
+    this.deleteddAt = todo.deleteddAt;
+  }
 }
