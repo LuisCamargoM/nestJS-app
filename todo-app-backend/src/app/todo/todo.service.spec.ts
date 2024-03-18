@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoService } from './todo.service';
-import { getCustomRepositoryToken, getRepositoryToken } from '@nestjs/typeorm';
+import { getRepositoryToken } from '@nestjs/typeorm';
 import { TodoEntity } from './entity/todo.entity';
-import { Entity, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { NotAcceptableException, NotFoundException } from '@nestjs/common';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 
