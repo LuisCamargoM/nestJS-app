@@ -34,11 +34,11 @@ export class TodoEntity {
   deleteddAt: string;
 
   constructor(todo?: Partial<TodoEntity>) {
-    this.id = todo.id;
-    this.isDone = todo.isDone;
-    this.task = todo.task;
-    this.createdAt = todo.createdAt;
-    this.updatedAt = todo.updatedAt;
-    this.deleteddAt = todo.deleteddAt;
+    this.id = todo?.id;
+    this.isDone = todo?.isDone;
+    this.task = todo?.task;
+    this.createdAt = todo?.createdAt;
+    this.updatedAt = todo?.updatedAt;
+    this.deleteddAt = todo?.deleteddAt;
   }
 }
