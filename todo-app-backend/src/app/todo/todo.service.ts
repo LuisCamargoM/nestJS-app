@@ -28,19 +28,15 @@ export class TodoService {
   }
   async create(data: CreateTodoDto) {
     try {
-      return await this.todoRepository.save(data);
+      return await this.todoRepository.save(this.todoRepository.create(data));
     } catch (error) {
       throw new NotAcceptableException(error.message);
     }
   }
   async update(id: string, data: UpdateTodoDto) {
-    try {
-      const newItem = await this.findOneOrFail(id);
-      this.todoRepository.merge(newItem, data);
-      return await this.todoRepository.save(newItem);
-    } catch (error) {
-      throw new NotAcceptableException(error.message);
-    }
+    const newItem = await this.findOneOrFail(id);
+    this.todoRepository.merge(newItem, data);
+    return await this.todoRepository.save(newItem);
   }
   async deleteById(id: string) {
     await this.findOneOrFail(id);
